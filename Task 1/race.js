@@ -90,11 +90,17 @@ function race(){
 //let firstCar = new Car(1,2,"blue","red");
 //firstCar.draw();
 
-let secondCar = new Car(500,400,"blue","purple");
+var firstCar = new Car({x: 0,y: 150,windowsColour: "red",colour:"yellow"});
+console.log(firstCar);
+firstCar.draw();
+var secondCar = new Car({x: 0,y: 300,windowsColour: "black",colour:"green"});
+console.log(secondCar);
 secondCar.draw();
-
-let thirdCar = new Car(1,2,"blue","purple");
+var thirdCar = new Car({x: 0,y: 450,windowsColour: "blue",colour:"red"});
+console.log(thirdCar);
 thirdCar.draw();
+
+
 
 let fourthCar = new Car(1,2,"blue","purple");
 fourthCar.draw();
@@ -103,3 +109,4 @@ fourthCar.draw();
     }
 
 }
+
