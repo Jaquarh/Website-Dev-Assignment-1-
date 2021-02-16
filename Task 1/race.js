@@ -1,12 +1,12 @@
-
+let c;
 console.log("linked")
 let btnRace = document.getElementById('race');
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-btnRace.addEventListener('click', race);
-
+btnRace.addEventListener('click', test);
+ 
 /* function draw() {
     if (ctx) {
         //Body
@@ -29,15 +29,16 @@ btnRace.addEventListener('click', race);
 } */
 
 
-let speed = Math.floor(Math.random() * 6 + 1);
 
 class Car{
     constructor(p){
         this.x = (p && p.x) || 0;
         this.y= (p && p.y) || 0;
         this.windowsColour=(p && p.windowsColour) || "blue";
+        this.directionX = (p && p.directionX) || 15;
+        this.directionY = 15;
 
-        this.speed = speed;
+        this.speed = Math.floor(Math.random() * 6 + 1);
         this.colour=(p && p.colour) ||"purple";;
 
 
@@ -81,11 +82,27 @@ class Car{
              //ctx.arc(this.x+160, this.y+357, 0,89 *Math.PI);
              //ctx.fill();
        }
+
+        move(){
+        this.x += this.directionX;  
+        console.log("we be movin");
+
+      
+      }
 }
 
 //TODO work out why cars appear in same location
+function createCar(){
+    c = new Car({x: 0,y: 150,windowsColour: "red",colour:"yellow",directionX:200});
+}
+function test(){
 
-function race(){
+
+c.draw();
+c.move();
+requestAnimationFrame(test);
+}
+/* function race(){
     if (ctx) {
 //let firstCar = new Car(1,2,"blue","red");
 //firstCar.draw();
@@ -93,9 +110,11 @@ function race(){
 var firstCar = new Car({x: 0,y: 150,windowsColour: "red",colour:"yellow"});
 console.log(firstCar);
 firstCar.draw();
+firstCar.move();
 var secondCar = new Car({x: 0,y: 300,windowsColour: "black",colour:"green"});
 console.log(secondCar);
 secondCar.draw();
+
 var thirdCar = new Car({x: 0,y: 450,windowsColour: "blue",colour:"red"});
 console.log(thirdCar);
 thirdCar.draw();
@@ -104,9 +123,11 @@ thirdCar.draw();
 
 let fourthCar = new Car(1,2,"blue","purple");
 fourthCar.draw();
-
+requestAnimationFrame(race);
 
     }
 
-}
+} */
+
+
 
